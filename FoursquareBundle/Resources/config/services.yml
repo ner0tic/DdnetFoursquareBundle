@@ -1,0 +1,4 @@
+services:
+  foursquare:
+    class: Ddnet\FoursquareBundle\Foursquare
+    arguments: ['@service_container']
