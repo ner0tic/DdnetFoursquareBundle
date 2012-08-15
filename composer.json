@@ -17,5 +17,5 @@
     "autoload": {
         "psr-0": { "Ddnet\\FoursquareBundle": "" }
     },
-    "target-dir": "Ddnet/FoursquareBundle"
+    "target-dir": "ddnet/foursquare-bundle"
 }
