@@ -1,0 +1,21 @@
+{
+    "name": "ddnet/foursquareBundle",
+    "type": "symfony-bundle",
+    "description": "Provides a foursquare api integration for a symfony 2.1 project.",
+    "keywords": ["foursquare API checkin"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Duroat",
+            "email": "david.durost@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "symfony/framework-bundle": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "Ddnet\\FoursquareBundle": "" }
+    },
+    "target-dir": "Ddnet\FoursquareBundle"
+}
