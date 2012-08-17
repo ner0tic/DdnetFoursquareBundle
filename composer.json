@@ -1,5 +1,5 @@
 {
-    "name": "ddnet/foursquareBundle",
+    "name": "ddnet/foursquare-bundle",
     "type": "symfony-bundle",
     "description": "Provides a foursquare api integration for a symfony 2.1 project.",
     "keywords": ["foursquare API checkin"],
@@ -17,5 +17,5 @@
     "autoload": {
         "psr-0": { "Ddnet\\FoursquareBundle": "" }
     },
-    "target-dir": "Ddnet\FoursquareBundle"
+    "target-dir": "Ddnet/FoursquareBundle"
 }
