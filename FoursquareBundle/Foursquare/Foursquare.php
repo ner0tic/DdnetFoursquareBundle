@@ -3,10 +3,14 @@
 namespace Ddnet\FoursquareBundle\Foursquare;
 use Ddnet\FoursquareBundle\Foursquare\FoursquareBase;
 use Symfony\Component\DependencyInjection\ContainerAware; 
-use Symfony\Component\DependencyInjection\ContainerInterface;
+//use Symfony\Component\DependencyInjection\ContainerInterface;
+
+use Ddnet\FoursquareBundle\Exception\FoursquareException as Exception;
+use Ddnet\FoursquareBundle\Exception\FoursquareBadRequestException as BadRequest;
+use Ddnet\FoursquareBundle\Exception\FoursquareNotFoundException as NotFound;
 
  /**
- * Foursquare
+ * Foursquare API wrapper
  *
  * @author david durost <david.durost@gmail.com>
  */
@@ -63,7 +67,7 @@ class Foursquare extends ContainerAware {
         return $fs->delete($endpoint, $params);
         break;
       default:
-        throw new FoursquareBadRequestException('The given method is invalid.');     
+        throw new BadRequestException('The given method is invalid.');     
     }
   }
 
@@ -82,7 +86,7 @@ class Foursquare extends ContainerAware {
     
     if($this->token)
       $params['oauth_token'] = $this->token;
-    else  throw new \ErrorException(/*FoursquareNotFoundException(*/'no oauth token found.');
+    else  throw new NotFoundException('no oauth token found.');
     
     if($method === 'GET')
       $url .= is_null($params) ? '' : '?'.http_build_query($params, '', '&');
@@ -106,7 +110,7 @@ class Foursquare extends ContainerAware {
     $data = curl_exec($ch);
     $meta = json_decode($data,true);
     if($meta['meta']["code"] != 200)
-      throw new \ErrorException(/*FoursquareException(*/"error encountered getting data.<br />code: ".$meta['meta']["code"]."<br />url: ".$url);
+      throw new Exception("error encountered getting data.<br />code: ".$meta['meta']["code"]."<br />url: ".$url);
       
     return $data;
   }

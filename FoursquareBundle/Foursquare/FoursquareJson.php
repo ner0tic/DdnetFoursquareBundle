@@ -3,6 +3,7 @@ namespace Ddnet\FoursquareBundle\Foursquare\Json;
 use \ArrayAccess;
 use \Countable;
 use \IteratorAggregate;
+use Ddnet\FoursquareBundle\Exception\FoursquareException as Exception;
 
 
 class FoursquareJson implements ArrayAccess, Countable, IteratorAggregate {
@@ -33,7 +34,7 @@ class FoursquareJson implements ArrayAccess, Countable, IteratorAggregate {
     if(isset($accessible[$name]) && $accessible[$name])
       return $this->$name;
     elseif(($this->code < 200 || $this->code >= 400) && !isset($accessible[$name]))
-      FoursquareException::raise($this->_response, $this->debug);
+      Exception::raise($this->_response, $this->debug);
     $this->response     = json_decode($this->responseText, 1);
     $this->__obj        = json_decode($this->responseText);
 
