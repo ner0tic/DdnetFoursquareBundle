@@ -7,6 +7,7 @@
   - Event
   - Photo
 3. Test
+4. TODO List
 
 ## TODO
 - OAuth connect (FOSUserBundle?)
@@ -19,23 +20,65 @@
 ---
 
 ## 1. Installation
-will clean this up soon...
-- add to composer.
-- add to kernel.
-- enjoy.
+Add DdnetFoursquareBundle to your composer.json file accordingly.
+```js
+{
+  "require": {
+    ddnet/foursquare-bundle": "*"
+  }
+}
+```
+Now use composer to add the bundle to your application.
+```bash
+$ php composer.phar update ddnet/foursquare-bundle
+```
+Composer will place the bundle in the `vendors/ddnet` directory.
+
+#### Enable Bundle
+Enable the bundle within the kernel.
+```php
+<?php // app/AppKernel.php
+  public function registerBundles() 
+  {
+    $bundles = array(
+      // ...
+      new Ddnet\FoursquareBundle(),
+    );
+  }
+```
 
 ## 2. Usage
-Include needed library
-> use Ddnet\FoursquareBundle\Foursquare as Foursquare;
+Include needed library.
+```php
+  use Ddnet\FoursquareBundle\Foursquare as Foursquare;
+```
+Generate an instance.
+```php
+  $fs = new Foursquare();
+```
+Get an instance of yourself (if logged into foursquare.)
+```php
+  use Ddnet\FoursquareBundle\Entity\User as FsqUser; 
+  $user = new FsqUser();
+  // cleaning this up in next release...
+  $user->fromArray(json_decode($fs->get('users/self')));
+```      
+Loop through your checkins.
+```php
+  foreach($user->getCheckins() as $checkin)
+    echo $user->getFirstName()." checked into ".$checkin->getVenue()->getName()." at ".$checkin->getCreatedAt()."\n";
+```
 
-Generate an instance
-> $fs = new Foursquare();
+## 3. Test
+coming to a theater near you soon.
 
-Get an instance of yourself (if logged into foursquare)
-> use Ddnet\FoursquareBundle\Entity\User as FsqUSer;
-> $user = new FsqUser();
-> $user->fromArray(json_decode($fs->get('users/self')));
-
-loop through your checkins
-> foreach($user->getCheckins() as $checkin)
->   echo $user->getFirstName()." checked into ".$checkin->getVenue()->getName()." at ".$checkin->getCreatedAt()."\n";
+## 4. TODO List
+- Finish Entities
+  + Tip
+  + List
+  + Special
+- OAuth Connect (FOSUserBundle? HWIOAuthBundle? both? all three?)
+- Possible forks for the various platforms
+  + Merchant
+  + Venues
+- polish to a spit shine
