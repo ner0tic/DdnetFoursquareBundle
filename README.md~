@@ -32,7 +32,7 @@ Generate an instance
 > $fs = new Foursquare();
 
 Get an instance of yourself (if logged into foursquare)
-> use Ddnet\FoursquareBundle\Entity\User as FsqUSer;
+> use Ddnet\FoursquareBundle\Entity\User as FsqUSer; 
 > $user = new FsqUser();
 > $user->fromArray(json_decode($fs->get('users/self')));
 
