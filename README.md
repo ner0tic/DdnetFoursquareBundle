@@ -10,7 +10,7 @@
 4. TODO List
 
 ## TODO
-- OAuth connect (FOSUserBundle?)
+- OAuth connect
 - Entities
   + list
   + tip
@@ -24,7 +24,7 @@ Add DdnetFoursquareBundle to your composer.json file accordingly.
 ```js
 {
   "require": {
-    ddnet/foursquare-bundle": "*"
+    "ddnet/foursquare-bundle": "*"
   }
 }
 ```
