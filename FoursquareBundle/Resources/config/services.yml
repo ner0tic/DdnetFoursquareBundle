@@ -2,3 +2,10 @@ services:
   foursquare:
     class: Ddnet\FoursquareBundle\Foursquare
     arguments: ['@service_container']
+  ddnet_foursquare.api:
+    class: '%ddnet_foursquare.api.class%'
+    arguments: [ %ddnet_foursquare.app_id%, %ddnet_foursquare.cookie%, %ddnet_foursquare.domain% ]
+  ddnet_foursquare.helper:
+    class: '%ddnet_foursquare.twig.class%'
+    arguments: [ '@service_Container']
+    tag_name: 'twig.extension'
