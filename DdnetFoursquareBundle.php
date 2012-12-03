@@ -15,4 +15,3 @@ class DdnetFoursquareBundle extends Bundle
             parent::build($container);
         }
 }
->
