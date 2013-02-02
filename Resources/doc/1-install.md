@@ -21,7 +21,7 @@ Enable the bundle within the kernel.
   {
     $bundles = array(
       // ...
-      new Ddnet\FoursquareBundle(),
+      new Ddnet\FoursquareBundle\DdnetFoursquareBundle(),
     );
   }
 ```
