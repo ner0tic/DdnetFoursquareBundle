@@ -1,2 +1,2 @@
-### 5. Connect
+## 5. Connect
 coming soon.
