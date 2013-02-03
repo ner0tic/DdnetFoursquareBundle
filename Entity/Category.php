@@ -1,98 +1,207 @@
 <?php
-
 namespace Ddnet\FoursquareBundle\Entity;
 
-class Category {
+use Ddnet\FoursquareBundle\Exception\FoursquareException;
 
-  protected $id;
-  public function getId() { return $this->id; }
-  public function setId($id) {
-    $this->id = $id;
-    return $this;
-  }
+class Category 
+{
+    protected 
+        $id,
+            
+        $name,
+        $pluralName,
+        $shortName,
+            
+        $icon = array( 
+            'prefix'    =>  '',
+            'suffix'    =>  ''
+         ),
+        
+        $categories = array();       
+        
+    /**
+     * Get Id
+     * 
+     * @return string
+     */
+    public function getId() 
+    { 
+        return $this->id; 
+    }
+    
+    /**
+     * Set Id
+     * 
+     * @param string $id
+     * 
+     * @return \Ddnet\FoursquareBundle\Entity\Category
+     */
+    public function setId( $id ) 
+    {
+        $this->id = $id;
+      
+        return $this;
+    }
 
-  protected $name;
-  public function getName() { return $this->name; }
-  public function setName($name) {
-    $this->name = $name;
-    return $this;
-  }
-  
-  protected $pluralName;
-  public function getPluralName() { return $this->pluralName; }
-  public function setPluralName($pluralName) {
-    $this->pluralName = $pluralName;
-    return $this;
-  }  
-  
-  protected $shortName;
-  public function getShortName() { return $this->shortName; }
-  public function setShortName($shortName) {
-    $this->name = $shortName;
-    return $this;
-  }  
-  
-  protected $icon = array(
-      'prefix'    =>  '',
-      'suffix'    =>  ''
-      );
-  public function getIcon($part='array') { 
-    switch($part) {
-      case 'pre':
-      case 'prefix':
-      case 'p':
-        return $this->icon['prefix'];
-        break;
-      case 'suf':
-      case 'suffix':
-      case 's':
-        return $this->icon['suffix'];
-        break;
-      default:
-        return $this->icon;
-        break;
+    /**
+     * Get Name
+     * 
+     * @return string
+     */
+    public function getName() 
+    { 
+        return $this->name; 
     }
-  }
-  public function setIcon($icon) {
-    $this->icon = $icon;
-    return $this;
-  }
+    
+    /**
+     * Set Name
+     * 
+     * @param string $name
+     * 
+     * @return \Ddnet\FoursquareBundle\Entity\Category
+     */
+    public function setName( $name ) 
+    {
+        $this->name = $name;
+      
+        return $this;
+    }
   
-  protected $categories = array();
-  public function getCategories() { return $this->categories; }
-  public function setCategories($categories) {
-    if($categories instanceof \Self) $this->categories = array($categories);
-    elseif(is_array($categories)) {
-      $this->categories = $categories;
+    /**
+     * Get Pluralized Version Of Name
+     * 
+     * @return string
+     */
+    public function getPluralName() 
+    { 
+        return $this->pluralName; 
     }
-    else  throw new FoursquareException('Category should be an array of Category Entities or a single entity of type Ddnet\FoursquareBundle\Entity\Category');
-    return $this;
-  }
-  public function getCategory() {
-    foreach($category as $categories) {
-      if($category->getPrimary()) return $category;
+    
+    /**
+     * Set Pluralized Version Of Name
+     * 
+     * @param string $pluralName
+     * 
+     * @return \Ddnet\FoursquareBundle\Entity\Category
+     */
+    public function setPluralName( $pluralName ) 
+    {
+        $this->pluralName = $pluralName;
+      
+        return $this;
+    }  
+
+    /**
+     * Get A Short Version Of Name
+     * 
+     * @return string
+     */
+    public function getShortName() 
+    { 
+        return $this->shortName; 
     }
-    return $this->categories[0];
-  }
-  public function addCategory($category) {   
-    if($category instanceof \Self) {
-      $this->categories[] = $category;
-      return $this;
+    
+    /**
+     * Set A Short Version Of Name
+     * 
+     * @param string $shortName
+     * 
+     * @return \Ddnet\FoursquareBundle\Entity\Category
+     */
+    public function setShortName( $shortName ) 
+    {
+        $this->name = $shortName;
+      
+        return $this;
+    }  
+
+    /**
+     * Get Icon
+     * @param type $part
+     * @return type
+     */
+    public function getIcon( $part = array() ) 
+    { 
+        switch( $part ) 
+        {
+            case 'pre':
+            case 'prefix':
+            case 'p':
+                return $this->icon[ 'prefix' ];
+                break;
+            case 'suf':
+            case 'suffix':
+            case 's':
+                return $this->icon[ 'suffix' ];
+                break;
+            default:
+                return $this->icon;
+                break;
+        }
     }
-    elseif(is_array($category)) {
-      $c = new \Self();
-      $c->fromArray($category);
-      return $this;
+    
+    /**
+     * Set An Icon
+     * 
+     * @param array $icon
+     * 
+     * @return \Ddnet\FoursquareBundle\Entity\Category
+     */
+    public function setIcon( array $icon = array() ) 
+    {
+        $this->icon = $icon;
+      
+        return $this;
     }
-    else  throw new FoursquareException('Category should be an array or a single entity of type Ddnet\FoursquareBundle\Entity\Category');
-  }  
-  
-  protected $primary = false;
-  public function isPrimary() { return $this->primary; }
-  public function setPrimary($primary) {
-    $this->primary = $primary;
-    return $this;
-  }
+
+    /**
+     * Get Children
+     * 
+     * @return array
+     */
+    public function getChildren() 
+    { 
+        return $this->children; 
+    }
+    
+    /**
+     * Set Children
+     * 
+     * @param array $children
+     * @param boolean $merge
+     * 
+     * @return \Ddnet\FoursquareBundle\Entity\Category
+     */
+    public function setChildren( array $children = array(), $merge = false ) 
+    {
+        if( $merge )
+        {
+            $this->children = array_merge( $this->children, $children );
+        }
+        else
+        {
+            $this->categories = $categories;
+        }
+      
+        return $this;
+    }
+    
+    public function getCategory( $child ) 
+    {
+        return isset( $this->children[ $child ]) ? $this->children[ $child] : null;
+    }
+    
+    public function addChild( Category $child ) 
+    {   
+        if( !$this->children[ $child->getName() ] )
+        {
+            $this->children[] = $child;
+        }
+        else
+        {
+            throw new FoursquareException( 'Child already exists.' );
+        }
+        
+        return $this;      
+    }  
 }
-
-?>
