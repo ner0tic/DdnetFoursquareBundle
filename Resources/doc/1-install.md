@@ -25,3 +25,13 @@ Enable the bundle within the kernel.
     );
   }
 ```
+
+#### Configure Bundle
+ Add your api key and userid to your `app/config/config.yml` file.
+```yaml
+# app/config/config.yml
+foursquare:
+    api_key: XXXXXXXXX
+    user_id: XXXXXXXXX
+```
+    

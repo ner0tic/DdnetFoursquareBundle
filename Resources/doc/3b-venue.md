@@ -1,9 +1,9 @@
-### Enpoints
+## 3. Enpoints
 
-#### Venue
+### 3b. Venue
 This maps the User endpoint to a usable entity.
 
-##### Parameters
+#### Parameters
 - id: contains the venueId from the venue endpoint
 - name: the venue's name
 - contact: an array of contact information (phone number, formatted phone number)
@@ -24,6 +24,6 @@ This maps the User endpoint to a usable entity.
 - phrases: an array of phrases
 - photos: an array of photos associated with the given endpoint
 
-##### Methods
+#### Methods
 Each parameter has a getter and setter (getFirstName, setLastName)
-fromArray(Array $arr): takes in an array and generates a Symfony2 entity from the given array
+fromArray(Array $array): takes in an array and generates a Symfony2 entity from the given array

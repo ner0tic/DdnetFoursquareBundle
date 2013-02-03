@@ -1,3 +1,3 @@
 ## 3. Endpoints
 
-### 3c. Checkin
+### 3f. Tip

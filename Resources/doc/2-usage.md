@@ -1,18 +1,21 @@
 ## 2. Usage
 Include needed library.
 ```php
-  use Ddnet\FoursquareBundle\Foursquare as Foursquare;
+  use Ddnet\FoursquareBundle\Foursquare;
 ```
 Generate an instance.
 ```php
-  $fs = new Foursquare();
+  $foursquare = new Foursquare();
 ```
 Get an instance of yourself (if logged into foursquare.)
 ```php
-  use Ddnet\FoursquareBundle\Entity\User as FsqUser; 
-  $user = new FsqUser();
-  // cleaning this up in next release...
-  $user->fromArray(json_decode($fs->get('users/self')));
+  use Ddnet\FoursquareBundle\Entity\User; 
+
+  $user = new User();
+  
+  $user->fromArray(
+    json_decode( $fs->get('users/self') ) 
+  );
 ```      
 Loop through your checkins.
 ```php

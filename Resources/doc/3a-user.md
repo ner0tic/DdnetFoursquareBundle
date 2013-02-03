@@ -1,9 +1,9 @@
-### Enpoints
+## 3. Enpoints
 
-#### User
+### 3a. User
 This maps the User endpoint to a usable entity.
 
-##### Parameters
+#### Parameters
 - id: contains the userId from the user endpoint
 - firstName: the user's first name
 - lastName: the user's last name
@@ -26,5 +26,5 @@ This maps the User endpoint to a usable entity.
 - scores: an array of checkin scoring (recent, max, checkinsCount)
 - referralId: the userId of referred given endpoint
 
-##### Methods
+#### Methods
 Each parameter has a getter and setter (getFirstName, setLastName)

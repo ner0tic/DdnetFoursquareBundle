@@ -1,10 +1,13 @@
-## 5. TODO List
+## 7. TODO List
 - Finish Entities
-  + Tip
   + List
   + Special
-- OAuth Connect (FOSUserBundle? HWIOAuthBundle? both? all three?)
+- OAuth Connect 
+  + FOSUserBundle
+  + HWIOAuthBundle
+  + Others?
 - Possible forks for the various platforms
   + Merchant
   + Venues
+  + Apps
 - polish to a spit shine

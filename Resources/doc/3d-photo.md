@@ -1,3 +1,3 @@
-### Endpoints
+### 3. Endpoints
 
-#### Photo
+#### 3d. Photo
