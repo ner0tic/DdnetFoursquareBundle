@@ -480,7 +480,7 @@ class Venue
      */
     public function getTip( Tip $tip ) 
     {
-        return ( in_array( $tip, $this->tips ) ? $this->tips[ $tip ] : null;
+        return ( in_array( $tip, $this->tips ) ? $this->tips[ $tip ] : null );
     }
   public function addTip( $tip ) {   
     if( $tip instanceof fsTip ) {
