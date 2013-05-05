@@ -1,3 +1,9 @@
+#This bundle has migrated to [Ner0tic/foursquare-bundle](https://github.com/ner0tic/foursquare-bundle.git)
+
+
+
+
+
 ##Documention
 1. [Installation](https://github.com/ner0tic/DdnetFoursquareBundle/blob/master/Resources/doc/1-install.md)
 2. [Usage](https://github.com/ner0tic/DdnetFoursquareBundle/blob/master/Resources/doc/2-usage.md)
@@ -12,3 +18,4 @@
 5. [Connect](https://github.com/ner0tic/DdnetFoursquareBundle/blob/master/Resources/doc/5-connect.md)
 6. [Test](https://github.com/ner0tic/DdnetFoursquareBundle/blob/master/Resources/doc/6-test.md)
 7. [TODO List](https://github.com/ner0tic/DdnetFoursquareBundle/blob/master/Resources/doc/7-todo.md)
+
